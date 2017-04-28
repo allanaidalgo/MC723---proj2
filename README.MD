@@ -1,7 +1,7 @@
 # Projeto 2 - Grupo 06
-Allana Idalgo 145166
-Lucas Calzolari 146987
-Matheus Koezuka 137017
+Allana Idalgo 145166  
+Lucas Calzolari 146987  
+Matheus Koezuka 137017  
 
 ## Metodologia
 A implementação do simulador mips será modificada para permitir um registro de metainformações baseada em hazards e cache misses. A biblioteca do dinero será utilizada para contabilizar os acessos á memória e configuração de diferentes tamanhos de memória e cache. E na implementação das instruções um controle sobre hazards e bolhas será implementado para se obter o número real de ciclos baseado no tamanho do pipeline e no fato de ser ou não super escalar.
@@ -14,6 +14,7 @@ Hazards ocorrem quando a execução de uma instrução depende de outra á sua f
 
 ### Hazard para instruções
 A tabela a baixo inclui algumas características relevantes para a identificação do tipo de hazard que cada instrução poderá gerar.
+
 | Instructions   |      read register      |  write register | read memory | write memory | write pc |
 |----------|:------:|:----:|:-----: |:------:|:----:|
 |ADD|\*|\*||||
