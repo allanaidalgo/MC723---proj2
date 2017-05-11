@@ -80,10 +80,11 @@ with open("output.txt", "r") as ins:
     b_miss = 0
     lines = ins.readlines()
     for line in lines:
-        a = line.split(" ")
+        a = line.strip().split(" ")
         d[a[0].strip()] = 0
+    print(d)
     for line in lines:
-        a = line.split(" ")
+        a = line.strip().split(" ")
         a[0] = a[0].strip()
         if(len(a) > 1):  # pulou
             if(d[a[0]] == 0):  # não deveria
@@ -95,3 +96,9 @@ with open("output.txt", "r") as ins:
                 d[a[0]] = 0
     print(b_miss)
 ```
+Assim, foram obtidos os seguintes números (porcentagem calculada através do número total de linhas em output.txt):
+
+|        Programa       | sha (small) | qsort (small) | dijkstra (large) |
+|:---------------------:|:-----------:|---------------|------------------|
+|     Branch Misses     |    70606    |     758296    |     16319658     |
+| Porcentagem de Misses |    12.45%   |     28.02%    |      38.94%      |
