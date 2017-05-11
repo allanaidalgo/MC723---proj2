@@ -74,7 +74,7 @@ Os parametros relacionados a superescalar e cache serão avaliados isoladamente,
 ## Branch Predictor
 O arquivo mips_isa.cpp foi alterado para gerar um arquivo de saída "output.txt" contendo os endereços de todos os branches e se ele realizou o salto ou não. Em seguida foi criado um programa em python denominado analyze_branch.py que lê esse arquivo de saída linha por linha e determina se ocorreu um salto que não deveria ou o inverso; não ocorreu um salto e deveria. Em ambos os casos é somado um contador b_miss. O código de analyze_branch.py para 1 bit pode ser visto abaixo:
 
-***
+```
 with open("output.txt", "r") as ins:
     d = {}
     b_miss = 0
@@ -94,4 +94,4 @@ with open("output.txt", "r") as ins:
                 b_miss += 1
                 d[a[0]] = 0
     print(b_miss)
-***
+```
