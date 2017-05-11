@@ -70,3 +70,28 @@ As configurações considerarão os seguintes parâmetros:
 * Cache : 4 combinações de tamanho de cache e de bloco da cache. (Cache de instruções e a l2 não serão alterados)
 
 Os parametros relacionados a superescalar e cache serão avaliados isoladamente, enquanto todas as combinações de pipelines e branch predictors serão avaliadas para se evitar muitas combinações possíveis. Totalizando assim 8 configurações distintas.
+
+## Branch Predictor
+O arquivo mips_isa.cpp foi alterado para gerar um arquivo de saída "output.txt" contendo os endereços de todos os branches e se ele realizou o salto ou não. Em seguida foi criado um programa em python denominado analyze_branch.py que lê esse arquivo de saída linha por linha e determina se ocorreu um salto que não deveria ou o inverso; não ocorreu um salto e deveria. Em ambos os casos é somado um contador b_miss. O código de analyze_branch.py para 1 bit pode ser visto abaixo:
+
+***
+with open("output.txt", "r") as ins:
+    d = {}
+    b_miss = 0
+    lines = ins.readlines()
+    for line in lines:
+        a = line.split(" ")
+        d[a[0].strip()] = 0
+    for line in lines:
+        a = line.split(" ")
+        a[0] = a[0].strip()
+        if(len(a) > 1):  # pulou
+            if(d[a[0]] == 0):  # não deveria
+                b_miss += 1
+                d[a[0]] = 1
+        else:  # não pulou
+            if(d[a[0]] == 1):  # deveria
+                b_miss += 1
+                d[a[0]] = 0
+    print(b_miss)
+***
