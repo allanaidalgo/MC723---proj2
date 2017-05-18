@@ -102,3 +102,35 @@ Assim, foram obtidos os seguintes números (porcentagem calculada através do n�
 |:---------------------:|:-----------:|---------------|------------------|
 |     Branch Misses     |    70606    |     758296    |     16319658     |
 | Porcentagem de Misses |    12.45%   |     28.02%    |      38.94%      |
+
+Para 2bits, e código acima foi modificado para:
+```
+with open("output.txt", "r") as ins:
+    d = {}
+    b_miss = 0
+    lines = ins.readlines()
+    for line in lines:
+        a = line.strip().split(" ")
+        d[a[0].strip()] = 0
+    print(d)
+    for line in lines:
+        a = line.strip().split(" ")
+        a[0] = a[0].strip()
+        if(len(a) > 1):  # pulou
+            if(d[a[0]] != 2):  # not strongly taken
+                if(d[a[0]] != 1): # not taken
+                    b_miss += 1
+                d[a[0]] += 1
+        else:  # não pulou
+            if(d[a[0]] != -1):  # not strongly not taken
+                if(d[a[0]] != 0):  # taken
+                    b_miss += 1
+                d[a[0]] -= 1
+    print(b_miss)
+```
+E os resultados foram:
+
+|        Programa       | sha (small) | qsort (small) | dijkstra (large) |
+|:---------------------:|:-----------:|---------------|------------------|
+|     Branch Misses     |    46444    |     837126    |     9002438      |
+| Porcentagem de Misses |    8.18%    |     30.94%    |      21.48%      |
