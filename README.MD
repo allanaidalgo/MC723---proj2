@@ -134,3 +134,10 @@ E os resultados foram:
 |:---------------------:|:-----------:|---------------|------------------|
 |     Branch Misses     |    46444    |     837126    |     9002438      |
 | Porcentagem de Misses |    8.18%    |     30.94%    |      21.48%      |
+
+Por fim, para um predictor "always taken" foi feito um grep da forma "grep " $" output.txt |wc" para determinar o número de linhas com espaço no final (ou seja, o número de branches que não pularam). Utilizando novamente o número total de linhas do arquivo output.txt para obter total de branches, chegamos nos seguintes dados:
+
+|        Programa       | sha (small) | qsort (small) | dijkstra (large) |
+|:---------------------:|:-----------:|---------------|------------------|
+|     Branch Misses     |    41550    |     684031    |     23953352     |
+| Porcentagem de Misses |    7.32%    |     25.28%    |      57.15%      |
