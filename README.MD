@@ -186,19 +186,19 @@ Considerando os valores acima, concluimos que o maior custo benefício entre que
 
 ## Configurações  
 
-| tamanho pipeline | cache bloco  | cache l1     | Branch algorithm |
-|------------------|--------------|--------------|------------------|
-| 5                | 8            | cache 1      | always           |
-| 5                | 16           | cache 2      | always           |
-| 5                | 32           | cache 1      | always           |
-| 5                | 64           | cache 2      | always           |
-| 5                | bloco melhor | cache melhor | 2 bit            |
-| 7                | bloco melhor | cache melhor | always           |
-| 7                | bloco melhor | cache melhor | 2 bit            |
-| 9                | bloco melhor | cache melhor | always           |
-| 9                | bloco melhor | cache melhor | 2 bit            |
+|         | tamanho pipeline | cache l1 | Branch algorithm |
+|---------|------------------|----------|------------------|
+| config1 | 5                | 8k       | always taken     |
+| config2 | 5                | 16k      | always taken     |
+| config3 | 5                | 32k      | always taken     |
+| config4 | 5                | 64k      | always taken     |
+| config5 | 5                | 16k      | 2 bit            |
+| config6 | 7                | 16k      | always taken     |
+| config7 | 7                | 16k      | 2 bit            |
+| config8 | 9                | 16k      | always taken     |
+| config9 | 9                | 16k      | 2 bit            |
 
-  
+    
 
 # Resultados
 ## Tabelas
