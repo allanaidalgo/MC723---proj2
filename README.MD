@@ -182,7 +182,7 @@ Testamos quatro variações de tamanho da cache L1: 8k, 16k, 32k, 64k com o intu
 Considerando os valores acima, concluimos que o maior custo benefício entre queda de miss rates e aumento de cache size foi 16k, sendo esta a configuração escolhida para avaliar os demais parâmetros.
 
 ## Tabela
-- Sha
+- Sha  
 
 | configs | Ciclos   | Data hazards | Instruções | branch miss | branch cost | number branches fail | cache miss rate | memory access | miss cost | Total Ciclos | CPI         |
 |---------|----------|--------------|------------|-------------|-------------|----------------------|-----------------|---------------|-----------|--------------|-------------|
@@ -197,7 +197,8 @@ Considerando os valores acima, concluimos que o maior custo benefício entre que
 | 9       | 12171865 | 1669836      | 6968956    | 0,0818      | 4           | 46444                | 0,0232          | 1366102       | 200       | 18696354     | 2,682805614 |
 
 
- - Qsort
+ - Qsort  
+ 
  | configs | Ciclos   | Data hazards | Instruções | branch miss | branch cost | number branches | cache miss rate | memory access | miss cost |           |             |
 |---------|----------|--------------|------------|-------------|-------------|-----------------|-----------------|---------------|-----------|-----------|-------------|
 | 1       | 53484099 | 5994545      | 39454159   | 0,2528      | 2           | 684031          | 0,0183          | 15797640      | 200       | 112671523 | 2,855757828 |
@@ -211,7 +212,8 @@ Considerando os valores acima, concluimos que o maior custo benefício entre que
 | 9       | 66164149 | 6369159      | 39454159   | 0,3094      | 4           | 837126          | 0,0149          | 15797640      | 200       | 116589620 | 2,955065401 |
 
 
- - Dijkstra
+ - Dijkstra  
+ 
  | configs | Ciclos   | Data hazards | Instruções | branch miss | branch cost | number branches | cache miss rate | memory access | miss cost |           |             |
 |---------|----------|--------------|------------|-------------|-------------|-----------------|-----------------|---------------|-----------|-----------|-------------|
 | 1       | 40358286 | 4431977      | 28682038   | 0,5715      | 2           | 23953352        | 0,0263          | 8702765       | 200       | 134041534 | 4,673361562 |
