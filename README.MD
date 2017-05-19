@@ -75,6 +75,9 @@ Os parametros relacionados a superescalar e cache serão avaliados isoladamente,
 
 # Relatório 
 
+## Pipeline
+Para os testes foram avaliadas três arquiteturas de pipelines diferentes, contendo 5, 7 e 9 estágios.  Considerando que não havia forwarding permitindo uma avaliação do impacto dos data hazards. 
+
 ## Branch Predictor
 O arquivo mips_isa.cpp foi alterado para gerar um arquivo de saída "output.txt" contendo os endereços de todos os branches e se ele realizou o salto ou não. Em seguida foi criado um programa em python denominado analyze_branch.py que lê esse arquivo de saída linha por linha e determina se ocorreu um salto que não deveria ou o inverso; não ocorreu um salto e deveria. Em ambos os casos é somado um contador b_miss. O código de analyze_branch.py para 1 bit pode ser visto abaixo:
 
@@ -180,6 +183,22 @@ Testamos quatro variações de tamanho da cache L1: 8k, 16k, 32k, 64k com o intu
 | 64k         | 25203         | 0.0029    |
 
 Considerando os valores acima, concluimos que o maior custo benefício entre queda de miss rates e aumento de cache size foi 16k, sendo esta a configuração escolhida para avaliar os demais parâmetros.
+
+## Configurações  
+
+| tamanho pipeline | cache bloco  | cache l1     | Branch algorithm |
+|------------------|--------------|--------------|------------------|
+| 5                | 8            | cache 1      | always           |
+| 5                | 16           | cache 2      | always           |
+| 5                | 32           | cache 1      | always           |
+| 5                | 64           | cache 2      | always           |
+| 5                | bloco melhor | cache melhor | 2 bit            |
+| 7                | bloco melhor | cache melhor | always           |
+| 7                | bloco melhor | cache melhor | 2 bit            |
+| 9                | bloco melhor | cache melhor | always           |
+| 9                | bloco melhor | cache melhor | 2 bit            |
+
+  
 
 # Resultados
 ## Tabelas
