@@ -66,14 +66,14 @@ A tabela a baixo inclui algumas características relevantes para a identificaç�
 
 ## Configurações
 As configurações considerarão os seguintes parâmetros:
-* Pipeline : 5, 7 e 13 estágios
+* Pipeline : 5, 7 e 9 estágios
 * Escalar vs Superescalar
 * Branch predictor : Sempre especular que a alteração no fluxo sempre ocorre, ou preditor de 2 bits.
 * Cache : 4 combinações de tamanho de cache e de bloco da cache. (Cache de instruções e a l2 não serão alterados)
 
 Os parametros relacionados a superescalar e cache serão avaliados isoladamente, enquanto todas as combinações de pipelines e branch predictors serão avaliadas para se evitar muitas combinações possíveis. Totalizando assim 8 configurações distintas.
 
-#Relatório 
+# Relatório 
 
 ## Branch Predictor
 O arquivo mips_isa.cpp foi alterado para gerar um arquivo de saída "output.txt" contendo os endereços de todos os branches e se ele realizou o salto ou não. Em seguida foi criado um programa em python denominado analyze_branch.py que lê esse arquivo de saída linha por linha e determina se ocorreu um salto que não deveria ou o inverso; não ocorreu um salto e deveria. Em ambos os casos é somado um contador b_miss. O código de analyze_branch.py para 1 bit pode ser visto abaixo:
@@ -147,7 +147,7 @@ Por fim, para um predictor "always taken" foi feito um grep da forma "grep " $" 
 | Porcentagem de Misses |    7.32%    |     25.28%    |      57.15%      |
 
 ## Cache
-Testamos quatro variações de tamanho da cache L1: 8k, 16k, 32k, 64k com o intuito de encontrar a melhor configuração. Os resultados podem ser vistos abaixo:
+Testamos quatro variações de tamanho da cache L1: 8k, 16k, 32k, 64k com o intuito de encontrar a melhor configuração. Então, utilizamos o Dinero para obter os miss rates, e os resultados podem ser vistos abaixo:
 
  - QSort
 
@@ -181,7 +181,8 @@ Testamos quatro variações de tamanho da cache L1: 8k, 16k, 32k, 64k com o intu
 
 Considerando os valores acima, concluimos que o maior custo benefício entre queda de miss rates e aumento de cache size foi 16k, sendo esta a configuração escolhida para avaliar os demais parâmetros.
 
-## Tabela
+# Resultados
+## Tabelas
 - Sha  
 
 | configs | Ciclos   | Data hazards | Instruções | branch miss | branch cost | number branches fail | cache miss rate | memory access | miss cost | Total Ciclos | CPI         |
